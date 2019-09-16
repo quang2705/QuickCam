@@ -2,14 +2,37 @@ html, body{
     margin: 0;
     padding: 0;
     height: 100%;
-    width: 100%:
+    width: 100%;
+}
+
+.jumbotron{
+    background-color: black;
+}
+
+.jumbotron h1 {
+    color: white;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+.jumbotron p {
+    color: white;
+    font-family: "Comic Sans MS", cursive, sans-serif;
 }
 
 #camera, #camera--view, #camera--sensor, #camera--output{
-    position: fixed;
-    height: 100%;
-    width: 100%:
-    object-fit: cover;
+    height: 100%
+    width: 100%;
+/*    object-fit: cover;
+*/}
+
+#camera--view {
+    display: block;
+    margin: 0 auto;
+    border-radius: 16px;
+}
+
+#camera--sensor {
+    display: none;
 }
 
 #camera--view, #camera--sensor, #camera--output{
@@ -17,19 +40,28 @@ html, body{
     filter: FlipH;
 }
 
+#backup{
+    display: block;
+    margin: 10px auto;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
 #camera--trigger{
     width: 200px;
     background-color: black;
     color: white;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    border: none;
     font-size: 16px;
     border-radius: 30px;
-    border: none;
     padding: 15px 20px;
     text-align: center;
-    box-shadow: 0 5px 10px 0 rgba(0,0,0,0.2);
-    position: fixed;
-    bottom: 30px;
-    left: calc(50% - 100px);
+    box-shadow: 5px 7px rgba(0,0,0,0.2);
+    display: block;
+    margin-left :auto;
+    margin-right : auto;
+    margin-top: 25px;
+    margin-bottom:25px;
 }
 
 .taken{
@@ -42,3 +74,4 @@ html, body{
     right: 20px;
     z-index: 2;
 }
+
