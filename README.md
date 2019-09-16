@@ -1,1 +1,1 @@
-# smart_cam
+# QuickCam
