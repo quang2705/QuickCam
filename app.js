@@ -1,13 +1,15 @@
 // Set constraints for the video stream
 var constraints = { video: { facingMode: "user" }, audio: false };
+var countdown = 3;
+
 // Define constants
 const cameraView = document.querySelector("#camera--view"),
     cameraOutput = document.querySelector("#camera--output"),
     cameraSensor = document.querySelector("#camera--sensor"),
-    cameraTrigger = document.querySelector("#camera--trigger")
+    cameraTrigger = document.querySelector("#camera--trigger"),
+    countdownNumber = document.querySelector("#count--number")
 
 let recognizer; 
-
 // Access the device camera and stream to cameraView
 function cameraStart() {
     navigator.mediaDevices
@@ -21,7 +23,7 @@ function cameraStart() {
     });
 }
 
-function triggerCam () {
+function triggerCam () {          
     cameraSensor.width = cameraView.videoWidth;
     cameraSensor.height = cameraView.videoHeight;
     cameraSensor.getContext("2d").drawImage(cameraView, 0, 0);
@@ -42,7 +44,23 @@ async function app() {
         prediction = scores[0].word
         console.log(prediction)
         if (prediction == "go") {
-            triggerCam();
+            countdownNumber.innerHTML = countdown;
+            var number = countdown;
+            var id = setInterval(countDown, 1000);
+            function countDown() {
+                if (number == 0){
+                    clearInterval(id);
+                    triggerCam();
+                }else if (number == 1 ){
+                    countdownNumber.innerHTML = "Smile!";
+                    number--;  
+                }
+                else {
+                    number--;  
+                    countdownNumber.innerHTML = number;
+                }
+                
+            }  
         }
     }, {
         includeSpectrogram: true,
